@@ -1,5 +1,5 @@
 import re
-from MG_API.Exceptions import InvalidPassword, InvalidUsername
+from mg_model.Exceptions import InvalidPassword, InvalidUsername
 from typing import *
 
 
@@ -50,20 +50,6 @@ class PasswordValidator(Validator):
                 ),
             ],
             re.search,
-        )
-
-
-class UsernameValidator(Validator):
-    def __init__(self):
-        super().__init__(
-            InvalidUsername,
-            [
-                ValidatorExpression(3, "Username must be atleast 3 charaters.", ">="),
-                ValidatorExpression(12, "Username must be 12 charaters or less.", "<="),
-                ValidatorExpression(
-                    "^[A-Za-zÀ-ȕ0-9\-_\.]*$", "Invalid Username character."
-                ),
-            ],
         )
 
 
