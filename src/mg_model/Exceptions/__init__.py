@@ -1,23 +1,9 @@
-class UserNotFound(Exception):
-    def __init__(self, message):
-        super().__init__(message)
+from .exceptions import *
 
-
-class InvalidPassword(Exception):
-    def __init__(self, message):
-        super().__init__(message)
-
-
-class InvalidUsername(Exception):
-    def __init__(self, message):
-        super().__init__(message)
-
-
-class InvalidEmail(Exception):
-    def __init__(self, message):
-        super().__init__(message)
-
-
-class ExistingUser(Exception):
-    def __init__(self, message):
-        super().__init__(message)
+__all__ = (
+    "UserNotFound",
+    "InvalidPassword",
+    "InvalidUsername",
+    "InvalidEmail",
+    "ExistingUser",
+)
