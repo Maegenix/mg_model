@@ -4,6 +4,7 @@ import os
 from mongoengine import Document, fields, CASCADE
 from django.utils import timezone
 from mg_model.user import User
+from mg_model.serializer import serialize
 
 
 class Token(Document):
@@ -11,6 +12,7 @@ class Token(Document):
     key = fields.StringField(required=True)
     user = fields.ReferenceField(User, reverse_delete_rule=CASCADE)
     created = fields.DateTimeField(default=timezone.now)
+    to_json = serialize
 
     def save(self, *args, **kwargs):
         if not self.key:
