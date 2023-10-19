@@ -26,6 +26,6 @@ class Token(Document):
         return self.key
 
     @queryset_manager
-    def get(self, queryset, user):
-        token = queryset.get(user=user)
+    def get(self, queryset, **kwargs):
+        token = queryset.get(**kwargs)
         return TokenSerializer(token)
