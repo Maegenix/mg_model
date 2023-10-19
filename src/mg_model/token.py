@@ -2,10 +2,8 @@ import binascii
 import os
 
 from mongoengine import Document, fields, CASCADE
-from mongoengine.queryset import queryset_manager
 from django.utils import timezone
 from mg_model.user import User
-from mg_model.Serializers import TokenSerializer
 
 
 class Token(Document):
@@ -24,8 +22,3 @@ class Token(Document):
 
     def __str__(self):
         return self.key
-
-    @queryset_manager
-    def get(self, queryset, **kwargs):
-        token = queryset.get(**kwargs)
-        return TokenSerializer(token)
