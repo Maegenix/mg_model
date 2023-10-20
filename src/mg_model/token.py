@@ -8,19 +8,19 @@ from django.utils import timezone
 from mg_model.user import User
 
 
-def serialize(self, doc, **kwargs):
+def serialize(doc, **kwargs):
     unwrapped = {}
     nested_dict = {}
     unwrapped["model_type"] = doc.__class__.__name__
     for k in dict(doc._fields).keys():
         try:
             if isinstance(doc[k], (User,)):
-                unwrapped[k] = self.serialize(doc[k])
+                unwrapped[k] = serialize(doc[k])
             elif isinstance(doc[k], ObjectId):
                 unwrapped[k] = doc[k].__str__()
             elif isinstance(doc[k], dict):
                 for p, l in doc[k].items():
-                    nested_dict[p] = self.serialize(l)
+                    nested_dict[p] = serialize(l)
                 unwrapped[k] = nested_dict
             else:
                 unwrapped[k] = doc[k]
