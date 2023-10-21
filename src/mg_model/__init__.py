@@ -6,6 +6,7 @@ from .Exceptions import *
 __all__ = (
     "Token",
     "User",
+    "BaseModel",
     "UserNotFound",
     "InvalidPassword",
     "InvalidUsername",

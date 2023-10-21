@@ -2,7 +2,7 @@ import binascii
 import os
 import json
 from bson.objectid import ObjectId
-
+import uuid
 from mongoengine import Document, fields, CASCADE
 from django.utils import timezone
 from mg_model.user import User
@@ -39,7 +39,8 @@ def serialize(doc, **kwargs):
 class Token(Document):
     # TODO - Add time to live on key https://docs.mongoengine.org/guide/defining-documents.html#time-to-live-ttl-indexes
     key = fields.StringField(required=True)
-    user = fields.ReferenceField(User, reverse_delete_rule=CASCADE)
+    user = fields.ReferenceField(User)
+    reference = StringField(default=f"Token/{uuid.uuid4()}")
     created = fields.DateTimeField(default=timezone.now)
     to_json = serialize
 

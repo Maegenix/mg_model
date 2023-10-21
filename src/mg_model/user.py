@@ -1,7 +1,8 @@
 from mongoengine import Document, StringField, DateTimeField, BooleanField
 from django.utils import timezone
 from django.contrib.auth.hashers import check_password, make_password
-import datetime
+import time
+import uuid
 from mg_model.Exceptions import (
     ExistingUser,
     UserNotFound,
@@ -15,9 +16,10 @@ class User(Document):
     email = StringField(max_length=99)
     password = StringField(max_length=99)
     username = StringField(max_length=99)
+    reference = StringField(default=f"User/{uuid.uuid4()}")
     is_authenticated = BooleanField(default=True)
-    last_login = DateTimeField(default=timezone.now, verbose_name="last login")
-    date_joined = DateTimeField(default=timezone.now, verbose_name="date joined")
+    last_login = DateTimeField(default=time.time(), verbose_name="last login")
+    date_joined = DateTimeField(default=time.time(), verbose_name="date joined")
 
     def set_password(self, raw_password):
         """
@@ -41,7 +43,7 @@ class User(Document):
     def create(self, **creds):
         email = self.email
         password = self.password
-        now = datetime.datetime.now()
+        now = time.time()
         try:
             ValidateNewUser(email, password)
             # Check for existing user with provided email
@@ -79,6 +81,8 @@ class User(Document):
 
             # Authenticate password
             if user.check_password(password):
+                # Update last login date to now
+                user.update(last_login=time.time())
                 return user
             else:
                 raise InvalidPassword("Incorrect username/password.")
