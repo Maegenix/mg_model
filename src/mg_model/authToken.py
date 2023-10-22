@@ -5,7 +5,7 @@ from bson.objectid import ObjectId
 import uuid
 from mongoengine import Document, fields, CASCADE
 from django.utils import timezone
-from mg_model.user import User
+from .user import User
 
 
 def serialize(doc, **kwargs):

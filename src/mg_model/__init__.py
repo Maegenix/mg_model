@@ -1,5 +1,5 @@
 import sys
-from .token import Token
+from .authToken import Token
 from .user import User
 from .island import Island
 from .Exceptions import *
