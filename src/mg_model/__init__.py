@@ -1,17 +1,18 @@
 import sys
 from .token import Token
 from .user import User
+from .island import Island
 from .Exceptions import *
 
 __all__ = (
     "Token",
     "User",
-    "BaseModel",
     "UserNotFound",
     "InvalidPassword",
     "InvalidUsername",
     "InvalidEmail",
     "ExistingUser",
+    "Island",
 )
 
 if sys.version_info[:2] >= (3, 8):

@@ -41,6 +41,7 @@ class Token(Document):
     key = fields.StringField(required=True)
     user = fields.ReferenceField(User)
     reference = fields.StringField(default=f"Token/{uuid.uuid4()}")
+    resource = fields.String(default="Token")
     created = fields.DateTimeField(default=timezone.now)
     to_json = serialize
 

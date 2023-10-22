@@ -17,6 +17,7 @@ class User(Document):
     password = StringField(max_length=99)
     username = StringField(max_length=99)
     reference = StringField(default=f"User/{uuid.uuid4()}")
+    resource = StringField(default="User")
     is_authenticated = BooleanField(default=True)
     last_login = DateTimeField(default=time.time(), verbose_name="last login")
     date_joined = DateTimeField(default=time.time(), verbose_name="date joined")
