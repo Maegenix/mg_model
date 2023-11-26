@@ -9,7 +9,7 @@ version_scheme = "no-guess-dev"
 
 [project]
 name = "MaeGenix"
-version = "0.0.4"
+version = "0.0.5"
 authors = [
   { name="Jalin Howard", email="jhowar39@emich.edu" },
 ]
