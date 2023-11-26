@@ -1,5 +1,6 @@
 from mongoengine import FloatField, ReferenceField, StringField, CASCADE, IntField
 from . import Actor
+from ...melee import Melee
 import uuid
 from ...user import User
 
@@ -12,3 +13,4 @@ class Player(Actor):
     user = ReferenceField(User, reverse_delete_rule=CASCADE, required=True)
     reference = StringField(default=f"Player/{uuid.uuid4()}")
     resource = StringField(default="Player")
+    melee = ReferenceField(Melee)
