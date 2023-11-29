@@ -13,4 +13,4 @@ class Player(Actor):
     user = ReferenceField(User, reverse_delete_rule=CASCADE, required=True)
     reference = StringField(default=f"Player/{uuid.uuid4()}")
     resource = StringField(default="Player")
-    melee = ReferenceField(Melee)
+    melee = StringField(default="Melee/default")
