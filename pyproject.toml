@@ -15,6 +15,7 @@ authors = [
 ]
 description = "MaeGenix Internal MVT Package Dependency"
 readme = "README.md"
+license = 'MIT'
 requires-python = ">=3.11.2"
 classifiers = [
     "Programming Language :: Python :: 3",
