@@ -2,9 +2,12 @@
 Changelog
 =========
 
-Version 0.1
+Version 0.0.7
 ===========
 
-- Feature A added
-- FIX: nasty bug #1729 fixed
-- add your changes here!
+- Player: Added Speed, Strength, Health Object(alive, current,capacity)
+- Actor: Velocity ListField
+- Melee: Reference StringField
+- User: Online BooleanField
+- Token: Removed Line 17 (Do Not Serialize)
+- Island: Reference StringField

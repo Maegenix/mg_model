@@ -2,7 +2,7 @@
 # See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
 
 # Required
-version: 2
+version: 0.0.7
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
@@ -24,4 +24,4 @@ build:
 python:
   install:
     - requirements: docs/requirements.txt
-    - {path: ., method: pip}
+    - { path: ., method: pip }
