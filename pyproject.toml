@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools==68.2.2", "setuptools_scm[toml]>=5"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+# For smarter version schemes and other configuration options,
+# check out https://github.com/pypa/setuptools_scm
+version_scheme = "no-guess-dev"
+
+[project]
+name = "MaeGenix"
+version = "0.0.5"
+authors = [
+  { name="Jalin Howard", email="jhowar39@emich.edu" },
+]
+description = "MaeGenix Internal MVT Package Dependency"
+readme = "README.md"
+license = {file = "LICENSE.txt"}
+requires-python = ">=3.11.2"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://www.maegenix.com"
