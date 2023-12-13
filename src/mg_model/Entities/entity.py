@@ -1,4 +1,4 @@
-from mongoengine import Document, StringField, ListField
+from mongoengine import Document, StringField, ListField, FloatField
 import uuid
 
 
