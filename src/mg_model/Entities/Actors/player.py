@@ -4,7 +4,7 @@ from mongoengine import (
     StringField,
     CASCADE,
     IntField,
-    MapField,
+    DictField,
     BooleanField,
 )
 from . import Actor
@@ -14,7 +14,7 @@ from ...user import User
 
 class Player(Actor):
     meta = {"allow_inheritance": True}
-    health = MapField(
+    health = DictField(
         alive=BooleanField(default=True),
         current=FloatField(default=100),
         Capacity=IntField(default=100),
