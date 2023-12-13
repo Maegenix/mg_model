@@ -17,7 +17,7 @@ class Player(Actor):
     health = DictField(
         alive=BooleanField(default=True),
         current=FloatField(default=100),
-        Capacity=IntField(default=100),
+        capacity=IntField(default=100),
         required=True,
     )
     speed = IntField(default=1, required=True)
